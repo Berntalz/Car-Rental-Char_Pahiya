@@ -14,7 +14,7 @@ export default function LoginWithGoogle() {
     console.log("res", response.tokenId);
     dispatch(googlelogin(auth_token))
 
-    // let res = await axios.post("/api/users/social_auth/google", {
+    // let res = await axios.post("https://charpahiya.onrender.com/api/users/social_auth/google", {
     //   tokenId: auth_token,
     // });
     // console.log("auth_token", res.data);

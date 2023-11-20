@@ -55,7 +55,7 @@ const OrderScreen = () => {
       navigation("/login");
     }
     const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get("/api/config/paypal");
+      const { data: clientId } = await axios.get("https://charpahiya.onrender.com/api/config/paypal");
       // console.log(clientId);
       const script = document.createElement("script");
       script.type = "text/javascript";

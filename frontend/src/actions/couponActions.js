@@ -24,7 +24,7 @@ export const createCoupon = (coupon) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
-    await axios.post(`/api/coupon`, coupon, config)
+    await axios.post(`https://charpahiya.onrender.com/api/coupon`, coupon, config)
     dispatch({ type: COUPON_CREATE_SUCCESS })
   } catch (error) {
     dispatch({
@@ -50,7 +50,7 @@ export const listCoupon = () => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.get(
-      `/api/coupon`,
+      `https://charpahiya.onrender.com/api/coupon`,
       config
     )
 
@@ -78,7 +78,7 @@ export const deleteCoupon = (id) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.delete(
-      `/api/coupon/${id}`,
+      `https://charpahiya.onrender.com/api/coupon/${id}`,
       config
     )
 

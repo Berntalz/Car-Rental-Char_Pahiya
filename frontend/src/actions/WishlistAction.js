@@ -15,7 +15,7 @@ export const addToWishList = (id) => async (dispatch, getState) => {
     dispatch({
       type: WISHLIST_ADD_ITEM_REQUEST,
     })
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`https://charpahiya.onrender.com/api/products/${id}`);
 
     // console.log("hhhhhhhhh");
     const {
@@ -34,13 +34,13 @@ export const addToWishList = (id) => async (dispatch, getState) => {
       image: data.image,
       price: data.price,
       countInStock: data.countInStock,
-      rating:data.rating,
-      numReviews:data.numReviews
+      rating: data.rating,
+      numReviews: data.numReviews
       //   qty:data.qty,
     };
 
     const response = await axios.post(
-      `/api/users/wishlist`,
+      `https://charpahiya.onrender.com/api/users/wishlist`,
       dataforWishlist,
       config
     );
@@ -75,7 +75,7 @@ export const getWishlists = () => async (dispatch, getState) => {
       },
     };
 
-    const response = await axios.get(`/api/users/getwishlists`, config);
+    const response = await axios.get(`https://charpahiya.onrender.com/api/users/getwishlists`, config);
 
     dispatch({
       type: WISHLIST_GET_ITEM_SUCCESS,
@@ -111,7 +111,7 @@ export const removeFromWishlists = (id) => async (dispatch, getState) => {
       },
     };
 
-    const response = await axios.delete(`/api/users/${id}/wishlist`, config);
+    const response = await axios.delete(`https://charpahiya.onrender.com/api/users/${id}/wishlist`, config);
 
     dispatch({
       type: WISHLIST_REMOVE_ITEM_SUCCESS,

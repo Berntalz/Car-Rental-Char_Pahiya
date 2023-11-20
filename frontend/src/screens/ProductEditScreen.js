@@ -107,7 +107,7 @@ const ProductEditScreen = () => {
       };
 
       const { data } = await axios.post(
-        "/api/upload/upload-images",
+        "https://charpahiya.onrender.com/api/upload/upload-images",
         formdata,
         config
       );
@@ -137,7 +137,7 @@ const ProductEditScreen = () => {
   //   redirect: "follow",
   // };
 
-  // fetch("/api/upload/upload-images", requestOptions)
+  // fetch("https://charpahiya.onrender.com/api/upload/upload-images", requestOptions)
   // .then((response) => response.text())
   // .then((res) => {
   //   console.log(res);
@@ -173,7 +173,7 @@ const ProductEditScreen = () => {
   //       "Content-Type": "multipart/form-data",
   //     },
   //   };
-  //   const { data } = await axios.post("/api/upload/upload-images", formData);
+  //   const { data } = await axios.post("https://charpahiya.onrender.com/api/upload/upload-images", formData);
   //   console.log("res", data);
   //   setImages(data);
   // } catch (error) {
@@ -193,7 +193,7 @@ const ProductEditScreen = () => {
     //       },
     //     };
 
-    // await axios.post("/api/upload", formData, config)
+    // await axios.post("https://charpahiya.onrender.com/api/upload", formData, config)
     //     .then((res)=> {
     //       console.log("succcc",res)
     //     }).catch((err)=>
@@ -213,7 +213,7 @@ const ProductEditScreen = () => {
         },
       };
 
-      const { data } = await axios.post("/api/upload", formData, config);
+      const { data } = await axios.post("https://charpahiya.onrender.com/api/upload", formData, config);
       console.log(data);
       setImage(data);
       setUploading(false);

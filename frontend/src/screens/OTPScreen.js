@@ -56,7 +56,7 @@ const OTPScreen = () => {
     console.log(data);
     if (!errorStatus) {
       await axios
-        .post("/api/users/email-send", data, {
+        .post("https://charpahiya.onrender.com/api/users/email-send", data, {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",

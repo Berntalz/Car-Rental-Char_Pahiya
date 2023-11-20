@@ -61,7 +61,7 @@ const PwdForm = ({ email }) => {
     if (!errorStatus) {
       console.log("api hitting");
       await axios
-        .post("/api/users/change-password", data, {
+        .post("https://charpahiya.onrender.com/api/users/change-password", data, {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",

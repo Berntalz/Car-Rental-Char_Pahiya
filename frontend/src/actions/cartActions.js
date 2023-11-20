@@ -2,22 +2,22 @@ import axios from 'axios'
 import { CART_ADD_ITEM, CART_DB_FAIL, CART_DB_REQUEST, CART_DB_SUCCESS, CART_LIST_FAIL, CART_LIST_REQUEST, CART_LIST_SUCCESS, CART_REMOVE_ITEM, CART_SAVE_PAYMENT_METHOD, CART_SAVE_SHIPPING_ADDRESS, DB_CART_CLEAR_FAIL, DB_CART_CLEAR_REQUEST, DB_CART_CLEAR_SUCCESS } from '../constants/cartConstants'
 import { APPLY_COUPON_FAIL, APPLY_COUPON_REQUEST, APPLY_COUPON_SUCCESS, CANCEL_COUPON_FAIL, CANCEL_COUPON_REQUEST, CANCEL_COUPON_SUCCESS } from '../constants/couponConstants'
 
-export const addToCart = (id,qty) => async (dispatch,getState) =>{
-    const { data } = await axios.get(`/api/products/${id}`)
+export const addToCart = (id, qty) => async (dispatch, getState) => {
+  const { data } = await axios.get(`https://charpahiya.onrender.com/api/products/${id}`)
 
-    dispatch({
-        type: CART_ADD_ITEM,
-        payload: {
-          product: data._id,
-          name: data.name,
-          image: data.image,
-          price: data.price,
-          countInStock: data.countInStock,
-          qty,
-        },
-      })
-    
-      localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+  dispatch({
+    type: CART_ADD_ITEM,
+    payload: {
+      product: data._id,
+      name: data.name,
+      image: data.image,
+      price: data.price,
+      countInStock: data.countInStock,
+      qty,
+    },
+  })
+
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
 export const removeFromCart = (id) => (dispatch, getState) => {
   dispatch({
@@ -59,7 +59,7 @@ export const dbSaveCart = (cart) => async (dispatch, getState) => {
       },
     }
 
-    await axios.post("/api/cart", { cart }, config)
+    await axios.post("https://charpahiya.onrender.com/api/cart", { cart }, config)
     dispatch({ type: CART_DB_SUCCESS })
   } catch (error) {
     dispatch({
@@ -74,7 +74,7 @@ export const dbSaveCart = (cart) => async (dispatch, getState) => {
 
 export const listCart = () => async (dispatch, getState) => {
   try {
-    dispatch({ type: CART_LIST_REQUEST})
+    dispatch({ type: CART_LIST_REQUEST })
 
     const {
       userLogin: { userInfo },
@@ -87,7 +87,7 @@ export const listCart = () => async (dispatch, getState) => {
     }
 
     const { data } = await axios.get(
-      "/api/cart",
+      "https://charpahiya.onrender.com/api/cart",
       config
     )
     dispatch({ type: CART_LIST_SUCCESS, payload: data })
@@ -116,7 +116,7 @@ export const clearDbCart = () => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`/api/cart`, config)
+    await axios.delete(`https://charpahiya.onrender.com/api/cart`, config)
     dispatch({ type: DB_CART_CLEAR_SUCCESS })
   } catch (error) {
     dispatch({
@@ -146,7 +146,7 @@ export const couponApply = (coupon) => async (dispatch, getState) => {
     }
 
     await axios.post(
-      `/api/cart/coupon`,
+      `https://charpahiya.onrender.com/api/cart/coupon`,
       { coupon },
       config
     )
@@ -177,7 +177,7 @@ export const couponCancel = () => async (dispatch, getState) => {
     }
 
     await axios.post(
-      `/api/cart/coupon-cancel`,
+      `https://charpahiya.onrender.com/api/cart/coupon-cancel`,
       {},
       config
     )
@@ -198,7 +198,7 @@ export const userDbCartDelete = () => async (dispatch, getState) => {
     const {
       userLogin: { userInfo },
     } = getState();
-    
+
     const config = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
@@ -206,7 +206,7 @@ export const userDbCartDelete = () => async (dispatch, getState) => {
     }
 
     await axios.delete(
-      `/api/cart/delete-user-cart`,
+      `https://charpahiya.onrender.com/api/cart/delete-user-cart`,
       config
     )
   } catch (error) {
