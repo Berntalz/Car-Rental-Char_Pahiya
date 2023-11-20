@@ -154,15 +154,15 @@ export default function NewFooter() {
               <Heading>CUSTOMER SERVICE</Heading>
               <ListGroup>
                 <Ul>
-                <a
+                  <a
                     className="neon"
                     // style={{color:'black'}}
                     // target="_blank"
                     rel="noreferrer"
                     href="mailto:reactjsdeveloper45@gmail.com"
                   >
-                
-                  Contact Us
+
+                    Contact Us
                   </a>
                 </Ul>
                 <Ul>
@@ -180,17 +180,17 @@ export default function NewFooter() {
               <Heading>COMPANY</Heading>
               <ListGroup>
                 <Ul>
-                <a
+                  <a
                     className="neon"
                     // style={{color:'black'}}
                     target="_blank"
                     rel="noreferrer"
                     href="https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"
                   >
-                  {/* <Link to="/https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"> */}
+                    {/* <Link to="/https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"> */}
                     About Us
-                    </a>
-                    {/* </Link> */}
+                  </a>
+                  {/* </Link> */}
                 </Ul>
                 {/* <Ul>
                   <Link to="/">We're Hiring</Link>
@@ -292,8 +292,8 @@ export default function NewFooter() {
                 alt="company logo"
                 src={logo}
                 style={{ height: matchesMD ? 20 : 25 }}
-                // className={classes.logo}
-                // style={{padding:'0.5em'}}
+              // className={classes.logo}
+              // style={{padding:'0.5em'}}
               />
               {/* <Heading style={{ paddingBottom: "1rem" }}>
                 KEEP UP TO DATE
@@ -392,7 +392,7 @@ export default function NewFooter() {
               color: "black",
             }}
           >
-            © {new Date().getFullYear()} , TEAM SPEED . All rights are reserved
+            © {new Date().getFullYear()} , TEAM 12 . All rights are reserved
             |
             {/* Source on {" "}
             <a
@@ -420,9 +420,9 @@ export default function NewFooter() {
               target="_blank"
               rel="noreferrer"
               href="https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"
-              // href="https://www.linkedin.com/in/ritik-jain-3b2208217/"
+            // href="https://www.linkedin.com/in/ritik-jain-3b2208217/"
             >
-              @Team_Speed
+              @Team_12
             </a>
           </Typography>
         </div>
