@@ -444,7 +444,7 @@ const mailer = (email, otp) => {
   var mail = {
     from: "reactjsdeveloper45@gmail.com",
     to: email,
-    subject: "One Time Password | TEAM SPEED",
+    subject: "One Time Password | Team 12",
     html: `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
