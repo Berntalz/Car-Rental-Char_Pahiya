@@ -69,8 +69,8 @@ const LoginScreen = () => {
     }
     setFormErrors(errors);
     console.log(errors);
-    // console.log(Object.entries(errors).length);
-    if (Object.entries(errors).length > 0) errorStatus = true;
+    // console.log(Object.entries(errors)?.length);
+    if (Object.entries(errors)?.length > 0) errorStatus = true;
     console.log(errorStatus);
     return errors;
   };
@@ -131,9 +131,9 @@ const LoginScreen = () => {
             Forgot password ?
           </Link>
         </Col>
-        <Col style={{color:Colors.SubWhite}}>
+        <Col style={{ color: Colors.SubWhite }}>
           New Customer?{" "}
-          <Link style={{color:Colors.SubWhite}} to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+          <Link style={{ color: Colors.SubWhite }} to={redirect ? `/register?redirect=${redirect}` : "/register"}>
             Register
           </Link>
         </Col>

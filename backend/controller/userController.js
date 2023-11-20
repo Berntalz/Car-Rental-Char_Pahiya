@@ -231,7 +231,7 @@ const changePwd = asyncHandler(async (req, res) => {
 // @access  Private
 
 const addWishList = asyncHandler(async (req, res) => {
-  const { countInStock, name, image, price, product,rating,
+  const { countInStock, name, image, price, product, rating,
     numReviews, } = req.body;
 
   const user = await User.findById(req.user._id);
@@ -256,11 +256,11 @@ const addWishList = asyncHandler(async (req, res) => {
 
     user.wishlist.push(wishlist);
 
-    // product.numReviews = product.reviews.length;
+    // product.numReviews = product.reviews?.length;
 
     // product.rating =
     //   product.reviews.reduce((acc, item) => item.rating + acc, 0) /
-    //   product.reviews.length;
+    //   product.reviews?.length;
 
     await user.save();
     res.status(201).json({ message: "Item Added To Wishlist" });
@@ -319,10 +319,10 @@ const googleLogin = asyncHandler(async (req, res) => {
     .verifyIdToken({
       idToken: tokenId,
       audience:
-      `${process.env.GOOGLE_CLIENT_ID}`,
+        `${process.env.GOOGLE_CLIENT_ID}`,
     })
     .then((response) => {
-      const {  email_verified, name, email } = response.payload;
+      const { email_verified, name, email } = response.payload;
       if (email_verified) {
         User.findOne({ email }).exec(async (err, user) => {
           if (err) {
@@ -331,7 +331,7 @@ const googleLogin = asyncHandler(async (req, res) => {
             });
           } else {
             if (user) {
-              res.json({ 
+              res.json({
                 _id: user._id,
                 name: user.name,
                 email: user.email,
@@ -339,7 +339,7 @@ const googleLogin = asyncHandler(async (req, res) => {
                 token: generateToken(user._id),
               });
             } else {
-              let password = email+process.env.JWT_SECRET
+              let password = email + process.env.JWT_SECRET
               const user = await User.create({
                 name,
                 email,
@@ -372,39 +372,23 @@ const googleLogin = asyncHandler(async (req, res) => {
 });
 
 const fbLogin = asyncHandler(async (req, res) => {
-  const { accessToken,userID} = req.body;
+  const { accessToken, userID } = req.body;
 
- let urlgrahpfb = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`
+  let urlgrahpfb = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`
 
- fetch(urlgrahpfb,{
-   method:'GET'
- }).then(response => response.json()).then( response=>{
-   const {email,name} = response;
-   console.log(response);
-   User.findOne({ email }).exec(async (err, user) => {
-    if (err) {
-      return res.status(400).json({
-        error: "Smething went wrong",
-      });
-    } else {
-      if (user) {
-        res.json({
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          isAdmin: user.isAdmin,
-          token: generateToken(user._id),
+  fetch(urlgrahpfb, {
+    method: 'GET'
+  }).then(response => response.json()).then(response => {
+    const { email, name } = response;
+    console.log(response);
+    User.findOne({ email }).exec(async (err, user) => {
+      if (err) {
+        return res.status(400).json({
+          error: "Smething went wrong",
         });
       } else {
-        let password = email+process.env.JWT_SECRET
-        const user = await User.create({
-          name,
-          email,
-          password
-        });
-
         if (user) {
-          res.status(201).json({
+          res.json({
             _id: user._id,
             name: user.name,
             email: user.email,
@@ -412,14 +396,30 @@ const fbLogin = asyncHandler(async (req, res) => {
             token: generateToken(user._id),
           });
         } else {
-          res.status(400);
-          throw new Error("Invalid user data");
+          let password = email + process.env.JWT_SECRET
+          const user = await User.create({
+            name,
+            email,
+            password
+          });
+
+          if (user) {
+            res.status(201).json({
+              _id: user._id,
+              name: user.name,
+              email: user.email,
+              isAdmin: user.isAdmin,
+              token: generateToken(user._id),
+            });
+          } else {
+            res.status(400);
+            throw new Error("Invalid user data");
+          }
         }
       }
-    }
-  });
+    });
 
- })
+  })
 
 
 })

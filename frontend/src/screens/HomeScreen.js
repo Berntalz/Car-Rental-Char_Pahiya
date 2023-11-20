@@ -52,7 +52,7 @@ const HomeScreen = () => {
   }, [dispatch, keyword, pageNumber]);
 
   const productList = useSelector((state) => state.productList);
-  const {  error, products } = productList;
+  const { error, products } = productList;
 
   return (
     <div>
@@ -83,7 +83,7 @@ const HomeScreen = () => {
 
       <ToastContainer />
 
-      {products.length === 0 ? (
+      {products?.length === 0 ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
@@ -96,7 +96,7 @@ const HomeScreen = () => {
               </Col>
             ))}
           </Row>
-          {products.length !== 0 ? (
+          {products?.length !== 0 ? (
             <></>
           ) : (
             <Typography

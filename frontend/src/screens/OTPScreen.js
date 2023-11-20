@@ -45,7 +45,7 @@ const OTPScreen = () => {
   }, [navigate, userInfo, redirect]);
 
   const handleSubmit = async (e) => {
-   
+
     setloginfailure(false);
     e.preventDefault();
 
@@ -73,7 +73,7 @@ const OTPScreen = () => {
           setloginfailure(true);
         });
     }
-  }; 
+  };
 
   const validate = (data) => {
     const errors = {};
@@ -83,8 +83,8 @@ const OTPScreen = () => {
     }
     setFormErrors(errors);
     console.log(errors);
-    // console.log(Object.entries(errors).length);
-    if (Object.entries(errors).length > 0) errorStatus = true;
+    // console.log(Object.entries(errors)?.length);
+    if (Object.entries(errors)?.length > 0) errorStatus = true;
     console.log(errorStatus);
     return errors;
   };
@@ -92,7 +92,7 @@ const OTPScreen = () => {
   return (
     <FormContainer>
       <ToastContainer />
-      <Typography variant="h4" style={{ marginTop: 50,marginBottom:'1.5em' }}>Reset Password</Typography>
+      <Typography variant="h4" style={{ marginTop: 50, marginBottom: '1.5em' }}>Reset Password</Typography>
       {loginfailure && <Message variant="danger">{errors}</Message>}
       {formErrors?.email && (
         <Message variant="danger">{formErrors.email}</Message>
@@ -113,7 +113,7 @@ const OTPScreen = () => {
 
           {/* <h1 style={{color:'red'}}>{formErrors.email}</h1> */}
 
-          <Button type="submit" variant="primary" style={{ marginTop: 10,backgroundColor:Colors.orange }}>
+          <Button type="submit" variant="primary" style={{ marginTop: 10, backgroundColor: Colors.orange }}>
             Send OTP
           </Button>
         </Form>

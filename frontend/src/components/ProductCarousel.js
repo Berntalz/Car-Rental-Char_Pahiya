@@ -18,7 +18,7 @@ const ProductCarousel = () => {
     dispatch(listTopProducts());
   }, [dispatch]);
 
-  return products.length === 0 ? (
+  return products?.length === 0 ? (
     <Loader />
   ) : error ? (
     <Message variant="danger">{error}</Message>

@@ -53,7 +53,7 @@ const PwdForm = ({ email }) => {
       email: email,
       otpCode: otp,
       password: password,
-      cpassword:cpassword
+      cpassword: cpassword
     };
     console.log(data);
     validate(data);
@@ -95,8 +95,8 @@ const PwdForm = ({ email }) => {
     }
     setFormErrors(errors);
     console.log(errors)
-    // console.log(Object.entries(errors).length);
-    if (Object.entries(errors).length > 0) errorStatus = true;
+    // console.log(Object.entries(errors)?.length);
+    if (Object.entries(errors)?.length > 0) errorStatus = true;
     console.log(errorStatus);
     return errors;
   };
@@ -104,7 +104,7 @@ const PwdForm = ({ email }) => {
   return (
     <>
       {loginfailure && <Message variant="danger">{errors}</Message>}
-    
+
       <Form onSubmit={handleChnagePwd}>
         <Form.Group controlId="email" style={{ marginBottom: "1em" }}>
           <Form.Label style={{ color: Colors.white }}>OTP Code</Form.Label>
@@ -113,15 +113,15 @@ const PwdForm = ({ email }) => {
             placeholder="Enter OTP"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            // ref={emailRef}
+          // ref={emailRef}
           ></Form.Control>
         </Form.Group>
 
         {formErrors?.otpCode && (
-          <div style={{color:'red'}}>{formErrors.otpCode}</div>
+          <div style={{ color: 'red' }}>{formErrors.otpCode}</div>
         )
         }
-    
+
 
         <Form.Group controlId="password" style={{ marginBottom: "1em" }}>
           <Form.Label style={{ color: Colors.white }}>Password</Form.Label>
@@ -133,7 +133,7 @@ const PwdForm = ({ email }) => {
           ></Form.Control>
         </Form.Group>
         {formErrors?.password && (
-          <div style={{color:'red'}}>{formErrors.password}</div>
+          <div style={{ color: 'red' }}>{formErrors.password}</div>
         )}
 
         <Form.Group controlId="password" style={{ marginBottom: "1em" }}>
@@ -146,10 +146,10 @@ const PwdForm = ({ email }) => {
           ></Form.Control>
         </Form.Group>
         {formErrors?.cpassword && (
-          <div style={{color:'red'}}>{formErrors.cpassword}</div>
+          <div style={{ color: 'red' }}>{formErrors.cpassword}</div>
         )}
 
-        <Button type="submit" variant="primary" style={{ marginTop: 10,backgroundColor:Colors.orange }}>
+        <Button type="submit" variant="primary" style={{ marginTop: 10, backgroundColor: Colors.orange }}>
           change Password
         </Button>
       </Form>

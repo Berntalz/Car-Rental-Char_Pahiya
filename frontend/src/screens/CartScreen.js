@@ -55,10 +55,10 @@ const CartScreen = () => {
   //   navigate("/login?redirect=/shipping")
   // }
   const checkoutHandler = () => {
-    if(userInfo){
-    dispatch(dbSaveCart(cartItems));
+    if (userInfo) {
+      dispatch(dbSaveCart(cartItems));
     }
-    else{
+    else {
       navigate('/login')
     }
   };
@@ -69,7 +69,7 @@ const CartScreen = () => {
         <Typography variant="h4" style={{ marginBottom: "1.5em" }}>
           Shopping Cart
         </Typography>
-        {cartItems.length === 0 ? (
+        {cartItems?.length === 0 ? (
           <Message>
             Your cart is empty <Link to="/">Go Back</Link>
           </Message>
@@ -137,13 +137,13 @@ const CartScreen = () => {
         <Card>
           <ListGroup variant="flush">
             <ListGroup.Item style={{
-                backgroundColor: "rgb(34 43 69)",
-                borderColor: Colors.SubWhite,
-                backgroundImage:
-                  "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-                boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-                color: Colors.white,
-              }}>
+              backgroundColor: "rgb(34 43 69)",
+              borderColor: Colors.SubWhite,
+              backgroundImage:
+                "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+              boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+              color: Colors.white,
+            }}>
               <h2>
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
@@ -154,13 +154,13 @@ const CartScreen = () => {
                 .toFixed(2)}
             </ListGroup.Item>
             <ListGroup.Item style={{
-                backgroundColor: "rgb(34 43 69)",
-                borderColor: Colors.SubWhite,
-                backgroundImage:
-                  "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-                boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-                color: Colors.white,
-              }}>
+              backgroundColor: "rgb(34 43 69)",
+              borderColor: Colors.SubWhite,
+              backgroundImage:
+                "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+              boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+              color: Colors.white,
+            }}>
               <Button
                 type="button"
                 // className="btn-block"
@@ -169,7 +169,7 @@ const CartScreen = () => {
                   borderColor: Colors.SubWhite,
                   color: Colors.white,
                 }}
-                disabled={cartItems.length === 0}
+                disabled={cartItems?.length === 0}
                 onClick={checkoutHandler}
               >
                 Proceed To Checkout

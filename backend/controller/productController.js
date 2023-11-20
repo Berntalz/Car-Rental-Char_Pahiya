@@ -9,19 +9,19 @@ const getProducts = asyncHandler(async (req, res) => {
   // const page = Number(req.query.pageNumber) || 1;
   const keyword = req.query.keyword
     ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: "i",
-        },
-      }
+      name: {
+        $regex: req.query.keyword,
+        $options: "i",
+      },
+    }
     : {};
   const count = await Product.countDocuments({ ...keyword });
   const products = await Product.find({ ...keyword })
-    // .limit(pageSize)
-    // .skip(pageSize * (page - 1));
+  // .limit(pageSize)
+  // .skip(pageSize * (page - 1));
 
-    // res.json({ products, page, pages: Math.ceil(count / pageSize) })
-    res.json({ products })
+  // res.json({ products, page, pages: Math.ceil(count / pageSize) })
+  res.json({ products })
 });
 
 // @desc    Fetch single product
@@ -62,7 +62,7 @@ const createProduct = asyncHandler(async (req, res) => {
     price: 0,
     user: req.user._id,
     image: "/images/sample.jpg",
-    images:"/images/sample.jpg",
+    images: "/images/sample.jpg",
     brand: "Sample brand",
     category: "Sample category",
     countInStock: 0,
@@ -78,7 +78,7 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-  const { name, price, description, image,images, brand, category, countInStock } =
+  const { name, price, description, image, images, brand, category, countInStock } =
     req.body;
 
   const product = await Product.findById(req.params.id);
@@ -128,11 +128,11 @@ const createProductReview = asyncHandler(async (req, res) => {
 
     product.reviews.push(review);
 
-    product.numReviews = product.reviews.length;
+    product.numReviews = product.reviews?.length;
 
     product.rating =
       product.reviews.reduce((acc, item) => item.rating + acc, 0) /
-      product.reviews.length;
+      product.reviews?.length;
 
     await product.save();
     res.status(201).json({ message: "Review added" });
@@ -151,7 +151,7 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.json(products)
 })
 
- 
+
 export {
   getProducts,
   getProductById,

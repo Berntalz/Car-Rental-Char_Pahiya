@@ -490,7 +490,7 @@ export default function NewHeader(props) {
             className={classes.tab}
             component={Link}
             // style={{color:'black'}}
-            style={{ color: Colors.white ,textDecoration: 'none'}}
+            style={{ color: Colors.white, textDecoration: 'none' }}
             to={route.link}
             label={route.name}
             aria-owns={route.ariaOwns}
@@ -535,7 +535,7 @@ export default function NewHeader(props) {
       )}
       <Button component={Link} to="/wishlist" onClick={() => props.setValue(5)}>
         <Favorite
-          style={{ color: wishItem.length ? "#FF0000" : Colors.white }}
+          style={{ color: wishItem?.length ? "#FF0000" : Colors.white }}
         />
       </Button>
       <Button
@@ -544,7 +544,7 @@ export default function NewHeader(props) {
         to="/cart"
         onClick={() => props.setValue(4)}
       >
-        <Badge badgeContent={cartItems.length} color="error">
+        <Badge badgeContent={cartItems?.length} color="error">
           <LocalMall style={{ color: Colors.white }} />
         </Badge>
       </Button>
@@ -703,44 +703,44 @@ export default function NewHeader(props) {
 
         <List disablePadding>
           {userInfo ? //   <ListItemText> // <ListItem style={{ backgroundColor: "#d9dadb" }}>
-          //     <Typography
-          //       variant="h4"
-          //       style={{
-          //         fontSize: "1.5rem",
-          //         // fontFamily:'cursive',
-          //         fontStyle: "italic",
-          //         textTransform: "none",
-          //         color: "black",
-          //         fontWeight: 500,
-          //       }}
-          //       align="left"
-          //     >
-          //       hey, <span>{userInfo && userInfo.name}</span>
-          //     </Typography>
-          //   </ListItemText>
-          // </ListItem>
-          null : (
-            <ListItem button>
-              <ListItemText
-                onClick={() => {
-                  setOpenDrawer(false);
+            //     <Typography
+            //       variant="h4"
+            //       style={{
+            //         fontSize: "1.5rem",
+            //         // fontFamily:'cursive',
+            //         fontStyle: "italic",
+            //         textTransform: "none",
+            //         color: "black",
+            //         fontWeight: 500,
+            //       }}
+            //       align="left"
+            //     >
+            //       hey, <span>{userInfo && userInfo.name}</span>
+            //     </Typography>
+            //   </ListItemText>
+            // </ListItem>
+            null : (
+              <ListItem button>
+                <ListItemText
+                  onClick={() => {
+                    setOpenDrawer(false);
 
-                  navigate("/login");
-                  props.setValue(3);
-                }}
-              >
-                <Typography
-                  style={{
-                    color: Colors.white,
-                    fontFamily: "Raleway",
-                    fontWeight: 700,
+                    navigate("/login");
+                    props.setValue(3);
                   }}
                 >
-                  Login/Sign Up
-                </Typography>
-              </ListItemText>
-            </ListItem>
-          )}
+                  <Typography
+                    style={{
+                      color: Colors.white,
+                      fontFamily: "Raleway",
+                      fontWeight: 700,
+                    }}
+                  >
+                    Login/Sign Up
+                  </Typography>
+                </ListItemText>
+              </ListItem>
+            )}
 
           <ListItem>
             <ListItemText>
@@ -765,10 +765,10 @@ export default function NewHeader(props) {
             //   to={route.link}
             //   selected={props.value === route.activeIndex}
             classes={{ selected: classes.drawerItemSelected }}
-            // onClick={() => {
-            //   setOpenDrawer(false);
-            //   // props.setValue(route.activeIndex);
-            // }}
+          // onClick={() => {
+          //   setOpenDrawer(false);
+          //   // props.setValue(route.activeIndex);
+          // }}
           >
             <ListItemText disableTypography className={classes.drawerItem}>
               CARS
@@ -798,7 +798,7 @@ export default function NewHeader(props) {
                   }}
                   component={Link}
                   to={item.link}
-                  // selected={props.value === item.activeIndex}
+                // selected={props.value === item.activeIndex}
                 >
                   <ListItemText>{item.name}</ListItemText>
                 </ListItem>
@@ -903,10 +903,10 @@ export default function NewHeader(props) {
                   //   to={route.link}
                   //   selected={props.value === route.activeIndex}
                   classes={{ selected: classes.drawerItemSelected }}
-                  // onClick={() => {
-                  //   setOpenDrawer(false);
-                  //   // props.setValue(route.activeIndex);
-                  // }}
+                // onClick={() => {
+                //   setOpenDrawer(false);
+                //   // props.setValue(route.activeIndex);
+                // }}
                 >
                   <ListItemText
                     disableTypography
@@ -942,7 +942,7 @@ export default function NewHeader(props) {
                       }}
                       component={Link}
                       to={item.link}
-                      // selected={props.value === item.activeIndex}
+                    // selected={props.value === item.activeIndex}
                     >
                       <ListItemText>{item.name}</ListItemText>
                     </ListItem>
@@ -979,8 +979,8 @@ export default function NewHeader(props) {
         onClick={() => setOpenDrawer(!openDrawer)}
         // disableRipple
         disableFocusRipple
-        // edge
-        // disableFocusRipple
+      // edge
+      // disableFocusRipple
       >
         <MenuIcon className={classes.drawerIcon} />
       </IconButton>
@@ -1003,7 +1003,7 @@ export default function NewHeader(props) {
                 alt="company logo"
                 src={logo}
                 className={classes.logo}
-                // style={{padding:'0.5em'}}
+              // style={{padding:'0.5em'}}
               />
             </Button>
 

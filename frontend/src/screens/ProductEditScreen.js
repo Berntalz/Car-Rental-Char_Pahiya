@@ -88,7 +88,7 @@ const ProductEditScreen = () => {
     for (const key of Object.keys(e.target.files)) {
       formdata.append("uploadedImages", e.target.files[key]);
     }
-    // for (var i = 0; i < e.target.files.length; i++) {
+    // for (var i = 0; i < e.target.files?.length; i++) {
     //   formdata.append("uploadedImages", e.target.files[i]);
     //   console.log("ddddd", e.target.files[i], `${e.target.files[i].name}`);
     // }
@@ -111,7 +111,7 @@ const ProductEditScreen = () => {
         formdata,
         config
       );
-      for (var i = 0; i < data.length; i++) {
+      for (var i = 0; i < data?.length; i++) {
         console.log(data[i].img);
 
         // this.setState({ 
@@ -147,9 +147,9 @@ const ProductEditScreen = () => {
   // for (const key of Object.keys(result)) {
   //   console.log("uploadedImages",result[key]);
   // }
-  // for (var i = 0; i < result.length; i++) {
+  // for (var i = 0; i < result?.length; i++) {
   //   // formdata.append("uploadedImages", e.target.files[i]);
-  //   console.log("ddddd", result.length);
+  //   console.log("ddddd", result?.length);
   // }
   // for (var i = 0; i < result.yo; i++) {
   //   fileObj.push(result.yo[i]);
@@ -160,7 +160,7 @@ const ProductEditScreen = () => {
   // .catch((error) => console.log("error", error));
   // console.log(e.target.files);
   // const formData = new FormData();
-  // for (var i = 0; i < e.target.files.length; i++) {
+  // for (var i = 0; i < e.target.files?.length; i++) {
   //   formData.append("uploadImages", e.target.files[i]);
   //   console.log("ddddd", e.target.files[i]);
   // }
@@ -183,7 +183,7 @@ const ProductEditScreen = () => {
 
   const uploadFileHandler = async (e) => {
     // const formData = new FormData();
-    // for (var i = 0; i <e.target.pictures.length; i++) {
+    // for (var i = 0; i <e.target.pictures?.length; i++) {
     //     formData.append('uploadImages', e.target.pictures[i])
     // }
     // // formData.append('texts', JSON.stringify(this.state.formTexts))
@@ -313,7 +313,7 @@ const ProductEditScreen = () => {
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               >
-                  <option value="">Select...</option>
+                <option value="">Select...</option>
                 <option value="BMW">BMW</option>
                 <option value="Ferrari">Ferrari</option>
                 <option value="Tesla">Tesla</option>
@@ -343,7 +343,7 @@ const ProductEditScreen = () => {
             <Form.Group controlId="category" style={{ marginBottom: "1em" }}>
               <Form.Label style={{ color: Colors.white }}>Category</Form.Label>
               <Form.Control
-               as="select"
+                as="select"
                 placeholder="Enter category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -351,7 +351,7 @@ const ProductEditScreen = () => {
                 <option value="">Select...</option>
                 <option value="Cars">Cars</option>
                 <option value="Accessories">Accessories</option>
-                
+
               </Form.Control>
             </Form.Group>
 

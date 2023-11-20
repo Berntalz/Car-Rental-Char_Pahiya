@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link,useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
@@ -41,19 +41,19 @@ const RegisterScreen = () => {
     setloginfailure(false);
     e.preventDefault()
     let data = {
-      name:name,
+      name: name,
       email: email,
       password: password,
-      confirmPassword:confirmPassword
+      confirmPassword: confirmPassword
     };
     validate(data);
     if (!errorStatus) {
-    if (password !== confirmPassword) {
-      setMessage('Passwords do not match')
-    } else {
-      dispatch(register(name, email, password))
+      if (password !== confirmPassword) {
+        setMessage('Passwords do not match')
+      } else {
+        dispatch(register(name, email, password))
+      }
     }
-  }
   }
 
   const validate = (data) => {
@@ -74,15 +74,15 @@ const RegisterScreen = () => {
     }
     setFormErrors(errors);
     console.log(errors)
-    // console.log(Object.entries(errors).length);
-    if (Object.entries(errors).length > 0) errorStatus = true;
+    // console.log(Object.entries(errors)?.length);
+    if (Object.entries(errors)?.length > 0) errorStatus = true;
     console.log(errorStatus);
     return errors;
   };
 
   return (
     <FormContainer>
-      <Typography variant="h4" style={{ marginBottom: "1.5em"}}>Sign Up</Typography>
+      <Typography variant="h4" style={{ marginBottom: "1.5em" }}>Sign Up</Typography>
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
@@ -97,7 +97,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         {formErrors?.name && (
-          <div style={{color:'red'}}>{formErrors.name}</div>
+          <div style={{ color: 'red' }}>{formErrors.name}</div>
         )
         }
 
@@ -111,7 +111,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         {formErrors?.email && (
-          <div style={{color:'red'}}>{formErrors.email}</div>
+          <div style={{ color: 'red' }}>{formErrors.email}</div>
         )
         }
 
@@ -125,7 +125,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         {formErrors?.password && (
-          <div style={{color:'red'}}>{formErrors.password}</div>
+          <div style={{ color: 'red' }}>{formErrors.password}</div>
         )
         }
 
@@ -140,11 +140,11 @@ const RegisterScreen = () => {
         </Form.Group>
 
         {formErrors?.confirmPassword && (
-          <div style={{color:'red'}}>{formErrors.confirmPassword}</div>
+          <div style={{ color: 'red' }}>{formErrors.confirmPassword}</div>
         )
         }
 
-        <Button type='submit' variant='primary' style={{marginTop:10,backgroundColor:Colors.orange}}>
+        <Button type='submit' variant='primary' style={{ marginTop: 10, backgroundColor: Colors.orange }}>
           Register
         </Button>
       </Form>

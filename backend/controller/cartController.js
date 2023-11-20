@@ -21,7 +21,7 @@ const dbCart = asyncHandler(async (req, res) => {
     cartExistByThisUser.remove()
   }
 
-  for (let i = 0; i < cart.length; i++) {
+  for (let i = 0; i < cart?.length; i++) {
     let object = {}
 
     object.product = cart[i].product
@@ -36,7 +36,7 @@ const dbCart = asyncHandler(async (req, res) => {
     products.push(object)
   }
   let cartTotal = 0
-  for (let i = 0; i < products.length; i++) {
+  for (let i = 0; i < products?.length; i++) {
     cartTotal = cartTotal + products[i].price * products[i].quantity
   }
   const newCart = await new Cart({
@@ -155,10 +155,10 @@ const deleteUserDbCart = asyncHandler(async (req, res) => {
 })
 
 export {
-    deleteUserDbCart,
-    cancelCoupon,
-    applyCoupon,
-    clearDbCart,
-    dbCart,
-    cartList
+  deleteUserDbCart,
+  cancelCoupon,
+  applyCoupon,
+  clearDbCart,
+  dbCart,
+  cartList
 }

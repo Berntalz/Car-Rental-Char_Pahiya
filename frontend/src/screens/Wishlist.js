@@ -76,7 +76,7 @@ const Wishlist = () => {
           Go Back
         </Link>
       )} */}
-      <Typography variant="h4" style={{marginBottom:'1.5em'}}>Wishlist</Typography>
+      <Typography variant="h4" style={{ marginBottom: '1.5em' }}>Wishlist</Typography>
       <ToastContainer />
       {loading ? (
         <Loader />
@@ -84,7 +84,7 @@ const Wishlist = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          {wishItem.length === 0 ? (
+          {wishItem?.length === 0 ? (
             <Message>
               Your wishlist is empty <Link to="/">Go Back</Link>
             </Message>

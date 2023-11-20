@@ -59,7 +59,7 @@ const multi_upload = multer({
     if (
       file.mimetype == "image/png" ||
       file.mimetype == "image/jpg" ||
-      file.mimetype == "image/jpeg" ||file.mimetype == "image/webp"
+      file.mimetype == "image/jpeg" || file.mimetype == "image/webp"
     ) {
       cb(null, true);
     } else {
@@ -89,13 +89,13 @@ router.post(
   asyncHandler(async (req, res) => {
     const reqFiles = [];
     // const url = req.protocol + "://" + req.get("host");
-    for (var i = 0; i < req.files.length; i++) {
+    for (var i = 0; i < req.files?.length; i++) {
       const uploadPhoto = await cloudinary.uploader.upload(
         `${req.files[i].path}`
       );
       console.log(uploadPhoto);
       const obj = {
-        img:uploadPhoto.url,
+        img: uploadPhoto.url,
       };
       reqFiles.push(obj);
     }
@@ -110,7 +110,7 @@ router.post(
 //   (req, res) => {
 //     const reqFiles = [];
 //     // const url = req.protocol + "://" + req.get("host");
-//     for (var i = 0; i < req.files.length; i++) {
+//     for (var i = 0; i < req.files?.length; i++) {
 //       const obj = {
 //         img: '/uploads/' + req.files[i].filename
 //       }

@@ -162,16 +162,16 @@ const OrderScreen = () => {
                   </p>
                 </Col>
                 {order.isPaid && (
-                <Col className="d-flex justify-content-md-end align-items-start justify-content-sm-start">
-                  <PDFDownloadLink
-                    document={<Invoice order={order} />}
-                    fileName="invoice.pdf"
-                    className="btn btn-sm btn-primary"
-                    style={{backgroundColor:Colors.orange}}
-                  >
-                    Download Invoice
-                  </PDFDownloadLink>
-                </Col>
+                  <Col className="d-flex justify-content-md-end align-items-start justify-content-sm-start">
+                    <PDFDownloadLink
+                      document={<Invoice order={order} />}
+                      fileName="invoice.pdf"
+                      className="btn btn-sm btn-primary"
+                      style={{ backgroundColor: Colors.orange }}
+                    >
+                      Download Invoice
+                    </PDFDownloadLink>
+                  </Col>
                 )}
               </Row>
               {order.isDelivered ? (
@@ -216,7 +216,7 @@ const OrderScreen = () => {
               }}
             >
               <h2>Order Items</h2>
-              {order.orderItems.length === 0 ? (
+              {order.orderItems?.length === 0 ? (
                 <Message>Order is empty</Message>
               ) : (
                 <ListGroup variant="flush">
@@ -264,62 +264,62 @@ const OrderScreen = () => {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item style={{
-                  backgroundColor: "rgb(34 43 69)",
-                  borderColor: Colors.SubWhite,
-                  backgroundImage:
-                    "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-                  boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-                  color: Colors.white,
-                }}>
+                backgroundColor: "rgb(34 43 69)",
+                borderColor: Colors.SubWhite,
+                backgroundImage:
+                  "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+                boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+                color: Colors.white,
+              }}>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
               <ListGroup.Item style={{
-                  backgroundColor: "rgb(34 43 69)",
-                  borderColor: Colors.SubWhite,
-                  backgroundImage:
-                    "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-                  boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-                  color: Colors.white,
-                }}>
+                backgroundColor: "rgb(34 43 69)",
+                borderColor: Colors.SubWhite,
+                backgroundImage:
+                  "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+                boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+                color: Colors.white,
+              }}>
                 <Row>
                   <Col>Items</Col>
                   <Col>₹{order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item style={{
-                  backgroundColor: "rgb(34 43 69)",
-                  borderColor: Colors.SubWhite,
-                  backgroundImage:
-                    "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-                  boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-                  color: Colors.white,
-                }}>
+                backgroundColor: "rgb(34 43 69)",
+                borderColor: Colors.SubWhite,
+                backgroundImage:
+                  "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+                boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+                color: Colors.white,
+              }}>
                 <Row>
                   <Col>Shipping</Col>
                   <Col>₹{order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item style={{
-                  backgroundColor: "rgb(34 43 69)",
-                  borderColor: Colors.SubWhite,
-                  backgroundImage:
-                    "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-                  boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-                  color: Colors.white,
-                }}>
+                backgroundColor: "rgb(34 43 69)",
+                borderColor: Colors.SubWhite,
+                backgroundImage:
+                  "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+                boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+                color: Colors.white,
+              }}>
                 <Row>
                   <Col>Tax</Col>
                   <Col>₹{order.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item style={{
-                  backgroundColor: "rgb(34 43 69)",
-                  borderColor: Colors.SubWhite,
-                  backgroundImage:
-                    "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-                  boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-                  color: Colors.white,
-                }}>
+                backgroundColor: "rgb(34 43 69)",
+                borderColor: Colors.SubWhite,
+                backgroundImage:
+                  "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+                boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+                color: Colors.white,
+              }}>
                 <Row>
                   <Col>Total</Col>
                   <Col>₹{order.totalPrice}</Col>
@@ -361,7 +361,7 @@ const OrderScreen = () => {
                     <Button
                       type="button"
                       className="btn btn-block"
-                      style={{backgroundColor:Colors.orange}}
+                      style={{ backgroundColor: Colors.orange }}
                       onClick={deliverHandler}
                     >
                       Mark As Delivered
