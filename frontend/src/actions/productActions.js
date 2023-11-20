@@ -182,7 +182,9 @@ export const createProductReview = (productId, review) => async (
       },
     }
 
-    await axios.post(`https://charpahiya.onrender.com/api/products/${productId}/reviews`, review, config)
+    const temp = { ...review, user: userInfo }
+    console.log(review)
+    await axios.post(`https://charpahiya.onrender.com/api/products/${productId}/reviews`, temp, config)
 
     dispatch({
       type: PRODUCT_CREATE_REVIEW_SUCCESS,
