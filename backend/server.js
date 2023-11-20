@@ -13,6 +13,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import couponRoutes from "./routes/couponRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import pkg from 'cloudinary'
+import cors from 'cors';
 
 dotenv.config();
 ConnectDB();
@@ -20,7 +21,10 @@ ConnectDB();
 const app = express();
 const cloudinary = pkg;
 
-
+app.use(cors({
+  origin: '*', // or true to allow all origins
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+}));
 
 // app.listen(5000, console.log("server"));
 
@@ -53,7 +57,7 @@ cloudinary.config({
 })
 
 app.use("/api/products", productRoutes);
-app.use("/api/users",userRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/coupon", couponRoutes);
