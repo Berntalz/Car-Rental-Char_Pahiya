@@ -41,12 +41,12 @@ const CategoryWiseProduct = () => {
     if (addSuccess) {
       alert.success("Product Added To Wishlist ");
       dispatch({ type: WISHLIST_ADD_ITEM_RESET });
-    }else if(addError){ 
+    } else if (addError) {
       alert.error(addError);
       dispatch({ type: WISHLIST_ADD_ITEM_RESET });
 
     }
-  }, [addSuccess, alert, dispatch,addError]);
+  }, [addSuccess, alert, dispatch, addError]);
 
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber));
@@ -76,7 +76,7 @@ const CategoryWiseProduct = () => {
           Go Back
         </Link>
       )} */}
-       <Typography variant="h4" style={{marginTop:'2em'}}>{params.brand}</Typography>
+      <Typography variant="h4" style={{ marginTop: '2em' }}>{params.brand}</Typography>
       {/* <h1></h1> */}
       <ToastContainer />
       {loading ? (
@@ -86,9 +86,9 @@ const CategoryWiseProduct = () => {
       ) : (
         <>
           <Row>
-            {products.map((product) =>
+            {products?.map((product) =>
               product.brand === params.brand &&
-              product.category === params.category ? (
+                product.category === params.category ? (
                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                   <Product product={product} />
                 </Col>

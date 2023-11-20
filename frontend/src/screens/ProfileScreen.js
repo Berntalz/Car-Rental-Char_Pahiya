@@ -74,8 +74,8 @@ const ProfileScreen = () => {
         {success && <Message variant="success">Profile Updated</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
-          <Form.Group controlId="name" style={{marginBottom:'1em'}}>
-            <Form.Label  style={{ color: Colors.white}}>Name</Form.Label>
+          <Form.Group controlId="name" style={{ marginBottom: '1em' }}>
+            <Form.Label style={{ color: Colors.white }}>Name</Form.Label>
             <Form.Control
               type="name"
               placeholder="Enter name"
@@ -84,8 +84,8 @@ const ProfileScreen = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="email" style={{marginBottom:'1em'}}>
-            <Form.Label style={{ color: Colors.white}}>Email Address</Form.Label>
+          <Form.Group controlId="email" style={{ marginBottom: '1em' }}>
+            <Form.Label style={{ color: Colors.white }}>Email Address</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter email"
@@ -94,8 +94,8 @@ const ProfileScreen = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="password" style={{marginBottom:'1em'}}>
-            <Form.Label style={{ color: Colors.white}}>Password</Form.Label>
+          <Form.Group controlId="password" style={{ marginBottom: '1em' }}>
+            <Form.Label style={{ color: Colors.white }}>Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Enter password"
@@ -104,8 +104,8 @@ const ProfileScreen = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="confirmPassword" style={{marginBottom:'1em'}}>
-            <Form.Label style={{ color: Colors.white}}>Confirm Password</Form.Label>
+          <Form.Group controlId="confirmPassword" style={{ marginBottom: '1em' }}>
+            <Form.Label style={{ color: Colors.white }}>Confirm Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirm password"
@@ -114,7 +114,7 @@ const ProfileScreen = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type="submit" variant="primary" style={{backgroundColor:Colors.orange}}>
+          <Button type="submit" variant="primary" style={{ backgroundColor: Colors.orange }}>
             Update
           </Button>
         </Form>
@@ -155,7 +155,7 @@ const ProfileScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {orders?.map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>

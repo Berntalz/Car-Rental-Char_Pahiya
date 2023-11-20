@@ -30,7 +30,7 @@ export const cartReducers = (
       if (existItem) {
         return {
           ...state,
-          cartItems: state.cartItems.map((x) =>
+          cartItems: state.cartItems?.map((x) =>
             x.product === existItem.product ? item : x
           ),
         };

@@ -41,12 +41,12 @@ const AccScreen = () => {
     if (addSuccess) {
       alert.success("Product Added To Wishlist ");
       dispatch({ type: WISHLIST_ADD_ITEM_RESET });
-    }else if(addError){ 
+    } else if (addError) {
       alert.error(addError);
       dispatch({ type: WISHLIST_ADD_ITEM_RESET });
 
     }
-  }, [addSuccess, alert, dispatch,addError]);
+  }, [addSuccess, alert, dispatch, addError]);
 
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber));
@@ -76,7 +76,7 @@ const AccScreen = () => {
           Go Back
         </Link>
       )} */}
-       <Typography variant="h4" style={{marginTop:'2em'}}>Accessories</Typography>
+      <Typography variant="h4" style={{ marginTop: '2em' }}>Accessories</Typography>
       {/* <h1></h1> */}
       <ToastContainer />
       {loading ? (
@@ -86,7 +86,7 @@ const AccScreen = () => {
       ) : (
         <>
           <Row>
-            {products.map((product) =>
+            {products?.map((product) =>
               product.category === 'Accessories' ? (
                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                   <Product product={product} />

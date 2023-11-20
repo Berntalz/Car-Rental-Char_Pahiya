@@ -72,7 +72,7 @@ function ProductBrand(props) {
         spacing={3}
       >
         {icons &&
-          icons.map((doc, idx) => (
+          icons?.map((doc, idx) => (
             <Grid item key={idx}>
               <Button
                 onClick={() =>

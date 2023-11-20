@@ -484,7 +484,7 @@ export default function NewHeader(props) {
         onChange={handleChange}
         indicatorColor="#FFB319"
       >
-        {routes.map((route, index) => (
+        {routes?.map((route, index) => (
           <Tab
             key={`${route}${index}`}
             className={classes.tab}
@@ -574,7 +574,7 @@ export default function NewHeader(props) {
         keepMounted
         style={{ zIndex: 1302 }}
       >
-        {adminOptions.map((option, i) => (
+        {adminOptions?.map((option, i) => (
           <MenuItem
             key={`${option}${i}`}
             component={Link}
@@ -606,7 +606,7 @@ export default function NewHeader(props) {
         keepMounted
         style={{ zIndex: 1302 }}
       >
-        {/* {accountOptions.map((option, i) => ( */}
+        {/* {accountOptions?.map((option, i) => ( */}
         <MenuItem
           // key={`${option}${i}`}
           // component={Link}
@@ -667,7 +667,7 @@ export default function NewHeader(props) {
         keepMounted
         style={{ zIndex: 1302 }}
       >
-        {menuOptions.map((option, i) => (
+        {menuOptions?.map((option, i) => (
           <MenuItem
             key={`${option}${i}`}
             component={Link}
@@ -782,7 +782,7 @@ export default function NewHeader(props) {
           {/* ))} */}
           <Collapse in={opend} timeout="auto" unmountOnExit>
             <List dense disablePadding>
-              {menuOptions.map((item, index) => (
+              {menuOptions?.map((item, index) => (
                 <ListItem
                   key={index}
                   classes={{
@@ -871,7 +871,7 @@ export default function NewHeader(props) {
                 </ListItemText>
               </ListItem> */}
 
-              {/* {routesV.map((route) => ( */}
+              {/* {routesV?.map((route) => ( */}
               <ListItem
                 //   key={`${route}${route.activeIndex}`}
                 divider
@@ -924,7 +924,7 @@ export default function NewHeader(props) {
               {/* ))} */}
               <Collapse in={openA} timeout="auto" unmountOnExit>
                 <List dense disablePadding>
-                  {adminOptions.map((item, index) => (
+                  {adminOptions?.map((item, index) => (
                     <ListItem
                       key={index}
                       classes={{

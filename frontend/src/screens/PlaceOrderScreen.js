@@ -223,7 +223,7 @@ const PlaceOrderScreen = () => {
 
               <ListGroup variant="flush">
                 {cartItems &&
-                  cartItems.products.map((item, index) => (
+                  cartItems.products?.map((item, index) => (
                     <ListGroup.Item
                       key={index}
                       style={{

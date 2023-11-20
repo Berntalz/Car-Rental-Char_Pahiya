@@ -78,12 +78,12 @@ const ProductListScreen = () => {
 
   return (
     <>
-      <Row className="align-items-center" style={{marginBottom:'1.5em'}}>
+      <Row className="align-items-center" style={{ marginBottom: '1.5em' }}>
         <Col>
           <Typography variant="h4" >Products</Typography>
         </Col>
         <Col className="text-right">
-          <Button className="my-3" onClick={createProductHandler} style={{backgroundColor:Colors.orange}}>
+          <Button className="my-3" onClick={createProductHandler} style={{ backgroundColor: Colors.orange }}>
             <i className="fas fa-plus"></i> Create Product
           </Button>
         </Col>
@@ -92,7 +92,7 @@ const ProductListScreen = () => {
       {errorDelete && <Message variant="danger">{errorDelete}</Message>}
       {loadingCreate && <Loader />}
       {errorCreate && <Message variant="danger">{errorCreate}</Message>}
-      
+
       {loading ? (
         <Loader />
       ) : error ? (
@@ -115,7 +115,7 @@ const ProductListScreen = () => {
               color: Colors.white,
             }}
           >
-            
+
             <thead>
               <tr>
                 <th>ID</th>
@@ -127,7 +127,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {products?.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>

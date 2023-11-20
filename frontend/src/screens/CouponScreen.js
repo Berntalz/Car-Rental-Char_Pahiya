@@ -158,7 +158,7 @@ const CouponScreen = () => {
                 </tr>
               </thead>
               <tbody>
-                {coupons.filter(searched(keyword)).map((coupon) => (
+                {coupons.filter(searched(keyword))?.map((coupon) => (
                   <tr key={coupon._id}>
                     <td>{coupon.name}</td>
                     <td>{new Date(coupon.expiry).toLocaleDateString()}</td>

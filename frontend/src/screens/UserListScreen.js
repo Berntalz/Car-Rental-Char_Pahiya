@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { deleteUser, listUsers } from '../actions/userActions'
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Colors from '../components/Colors'
 import { Typography } from '@mui/material'
 
@@ -27,7 +27,7 @@ const UserListScreen = () => {
     } else {
       navigate('/login')
     }
-  }, [dispatch,navigate,userInfo,successDelete])
+  }, [dispatch, navigate, userInfo, successDelete])
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure')) {
@@ -37,22 +37,22 @@ const UserListScreen = () => {
 
   return (
     <>
-      <Typography variant='h4' style={{marginBottom:'1.5em'}}>Users</Typography>
+      <Typography variant='h4' style={{ marginBottom: '1.5em' }}>Users</Typography>
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
-        <Table striped bordered hover responsive className='table-sm'  
-        variant="dark"
-        style={{
-          backgroundColor: "rgb(34 43 69)",
-          borderColor: Colors.SubWhite,
-          backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-          boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
-          color: Colors.white,
-        }}>
+        <Table striped bordered hover responsive className='table-sm'
+          variant="dark"
+          style={{
+            backgroundColor: "rgb(34 43 69)",
+            borderColor: Colors.SubWhite,
+            backgroundImage:
+              "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
+            boxShadow: "rgb(0 0 0 / 25%) 0px 3px 6px 0px",
+            color: Colors.white,
+          }}>
           <thead>
             <tr>
               <th>ID</th>
@@ -63,12 +63,12 @@ const UserListScreen = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {users?.map((user) => (
               <tr key={user._id}>
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>
-                  <a href={`mailto:${user.email}`} style={{color:Colors.white}}>{user.email}</a>
+                  <a href={`mailto:${user.email}`} style={{ color: Colors.white }}>{user.email}</a>
                 </td>
                 <td>
                   {user.isAdmin ? (
@@ -78,7 +78,7 @@ const UserListScreen = () => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer  to={`/admin/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
                     <Button variant='light' className='btn-sm'>
                       <i className='fas fa-edit'></i>
                     </Button>

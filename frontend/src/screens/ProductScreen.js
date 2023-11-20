@@ -168,7 +168,7 @@ const ProductScreen = () => {
                   {/* <p className="legend">Legend 1</p> */}
                 </div>
                 {product.images &&
-                  product.images.map((img, index) => (
+                  product.images?.map((img, index) => (
                     <div key={index}>
                       <Image
                         src={img}
@@ -329,7 +329,7 @@ const ProductScreen = () => {
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
                           >
-                            {[...Array(product.countInStock).keys()].map(
+                            {[...Array(product.countInStock).keys()]?.map(
                               (x) => (
                                 <option key={x + 1} value={x + 1}>
                                   {x + 1}
@@ -380,7 +380,7 @@ const ProductScreen = () => {
                 }}
               >
                 {product.reviews &&
-                  product.reviews.map((review) => (
+                  product.reviews?.map((review) => (
                     <ListGroup.Item
                       key={review._id}
                       style={{
