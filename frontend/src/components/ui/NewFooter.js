@@ -185,9 +185,9 @@ export default function NewFooter() {
                     // style={{color:'black'}}
                     target="_blank"
                     rel="noreferrer"
-                    href="https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"
+                    href="https://github.com/Berntalz/carFinal"
                   >
-                    {/* <Link to="/https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"> */}
+                    {/* <Link to="/https://github.com/Berntalz/carFinal"> */}
                     About Us
                   </a>
                   {/* </Link> */}
@@ -201,7 +201,7 @@ export default function NewFooter() {
                     // style={{color:'black'}}
                     target="_blank"
                     rel="noreferrer"
-                    href="https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"
+                    href="https://github.com/Berntalz/carFinal"
                   >
                     Terms and Condtions
                   </a>
@@ -212,7 +212,7 @@ export default function NewFooter() {
                     // style={{color:'black'}}
                     target="_blank"
                     rel="noreferrer"
-                    href="https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"
+                    href="https://github.com/Berntalz/carFinal"
                   >
                     Privacy Policy
                   </a>
@@ -265,7 +265,7 @@ export default function NewFooter() {
                     // style={{color:'black'}}
                     target="_blank"
                     rel="noreferrer"
-                    href="https://www.linkedin.com/in/ritik-jain-3b2208217/"
+                    href="https://www.linkedin.com/in/aman-deep-28619b216/"
                   >
                     <LinkedIn />
                   </a>
@@ -275,7 +275,7 @@ export default function NewFooter() {
                     // style={{color:'black'}}
                     target="_blank"
                     rel="noreferrer"
-                    href="https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"
+                    href="https://github.com/Berntalz/carFinal"
                   >
                     <YouTube />
                   </a>
@@ -419,8 +419,8 @@ export default function NewFooter() {
               // style={{color:'black'}}
               target="_blank"
               rel="noreferrer"
-              href="https://www.youtube.com/channel/UCZDazsY2zyfoX6sw1H3Qs8w"
-            // href="https://www.linkedin.com/in/ritik-jain-3b2208217/"
+              href=""
+            // href="https://www.linkedin.com/in/aman-deep-28619b216/"
             >
               @Team_12
             </a>
