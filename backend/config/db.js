@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 // Load environment variables from .env file
 dotenv.config();
 
-const uri = 'mongodb+srv://booking:booking@cluster0.ef2m7sc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const uri = process.env.MONGO_URI;
 
 if (!uri) {
     console.error('Mongo URI is not defined. Please set MONGO_URI environment variable.');
