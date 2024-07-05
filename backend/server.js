@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from 'mongoose';
 import dotenv from "dotenv";
 import path from "path";
 import uploadRoutes from "./routes/uploadRoutes.js";
@@ -6,7 +7,7 @@ import morgan from "morgan";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import colors from "colors";
 import products from "./data/product.js";
-import ConnectDB from './config/db.js';
+//import ConnectDB from './config/db.js';
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
@@ -16,7 +17,19 @@ import pkg from 'cloudinary'
 import cors from 'cors';
 
 dotenv.config();
-ConnectDB();
+
+const uri = 'mongodb+srv://booking:booking@cluster0.ef2m7sc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+
+if (!uri) {
+  console.error('Mongo URI is not defined. Please set MONGO_URI environment variable.');
+  process.exit(1);
+}
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Database connected successfully'))
+  .catch(err => console.error('Database connection error:', err));
+
+///////////////////////
 
 const app = express();
 const cloudinary = pkg;
